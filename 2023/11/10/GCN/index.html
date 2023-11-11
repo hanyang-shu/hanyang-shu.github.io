@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GCN | Hexo</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content=Hexo   >
+  <link rel="apple-touch-icon" href="img/icons/152.png">
+  
+  
+  <meta name="theme-color" content="#0c0c1f">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class=" ">
+  	   <div class="iewarn" id="iewarn">
+<div>---------!!!!!!!!!!!!!!!!-----------------</div>
+检测到您正在使用IE9或更低版本浏览器访问本站，为了您的阅读体验，本站推荐您使用<a href="https://www.google.com/chrome/" target="_blank" >Chrome浏览器</a> 或者<a href="https://www.mozilla.org/en-US/firefox/products/" target="_blank" >Firefox浏览器 </a> 对本站进行访问
+
+</div>
+      <header class="main-header">
+
+<div class="logo nav-list">
+<a href="/"><img src=/img/logo.jpg alt="logo" width="50px" height="50px" /></a>
+</div>
+<ul class="nav-list nav">
+
+<li class="nav-list">
+<a href="/">
+<i class="fa fa-home" aria-hidden="true" ></i>
+首页
+</a>
+</li>
+
+
+
+	
+<li class="nav-list">
+<a href= /about  >
+<i class="fa fa-youtube-play" aria-hidden="true" ></i>
+关于
+</a>
+</li>
+
+
+
+<li class="nav-list">
+<a href="/atom.xml" target="_blank" >
+<i class="fa fa-feed" aria-hidden="true" ></i>
+订阅
+</a>
+</li>
+
+
+
+<li class="nav-list lightmode ">
+<a href="javascript:;" >
+<i class="fa fa-moon-o" aria-hidden="true"></i>
+关灯
+</a>
+</li>
+</ul>
+
+</header>
+        <article>
+  <div class="article-share">
+<div id="qrcode">
+	<div class="qr-text">
+	扫一扫，分享到微信
+	<i class="fa fa-window-close-o fa-2" aria-hidden="true"></i>
+	</div>
+</div>
+<ul class="share-content">
+<li >
+		<i class="fa fa-share-alt" aria-hidden="true"></i>
+	</li>
+	<li>
+		<a ><i class="fa fa-weixin" aria-hidden="true" id="toweixin"></i></a>
+	</li>
+	<li>
+		<a ><i class="fa fa-weibo" aria-hidden="true" id="toweibo"></i></a>
+	</li>
+	<li>
+		<a ><i class="fa fa-twitter" aria-hidden="true" id="totwitter"></i></a>
+	</li>
+</ul>
+</div>
+<div class="article main-body" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <!--采用相对的时间或者绝对的时间，默认相对-->
+
+<div class="article-date">
+  	<time datetime="2023-11-10T02:21:56.353Z" itemprop="datePublished">
+  	
+  	
+  	
+  	
+  	
+    
+      
+      
+         
+        
+    
+    
+    
+  	
+  		
+  	
+  	
+    
+    
+  	
+  	 	
+  	
+  		
+  	
+  	
+    
+    
+  	
+  	
+  	
+  		
+  	
+  	
+  	1dayago
+
+
+  
+<div>
+read time: 10分钟
+</div>
+</div>
+
+
+
+
+  </div>
+  <div class="article-inner">
+   
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GCN
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们提出了一种可扩展的图结构数据半监督学习方法，该方法基于直接在图上运行的卷积神经网络的有效变体。 我们通过谱图卷积的局部一阶近似来选择我们的卷积架构。 我们的模型在图边的数量上线性缩放，并学习对局部图结构和节点特征进行编码的隐藏层表示。 在引文网络和知识图数据集上的大量实验中，我们证明我们的方法明显优于相关方法。</p>
+<h3 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h3><p>为什么称为“半监督节点分类”：在一个图中，标签只是部分可知。</p>
+<p>前人的提出的方法，在损失函数中加入拉普拉斯正则项：<br>$$<br>\Iota &#x3D; \Iota_0+\lambda*\Iota_{reg}<br>\其中\  \Iota_{reg}&#x3D;\sum_{i,j}A_{i,j}||f(X_i)-f(X_j)||^2&#x3D;f(X)^T\Delta f(X)<br>$$<br>$ \Iota_0 $ 代表监督损失，$f()$可以是一个神经网络，X是特征矩阵，$\lambda$是权重因子，$\Delta&#x3D;D-A$表示非归一化的拉普拉斯矩阵。</p>
+<p>上述式子依赖于一个假设：图中的连接节点可能有相同的标签。 然而，这种假设可能会限制建模能力，因为图的边不一定需要对节点相似性进行编码，可能包含附加信息。</p>
+<p>本文的贡献：1、为神经网络模型引入了一种简单且表现良好的分层传播规则，该规则						直接在图上运行，并展示了如何从谱图卷积的一阶近似中激发。</p>
+<p>​						2、实现1。</p>
+<h3 id="2、图上的快速近似卷积"><a href="#2、图上的快速近似卷积" class="headerlink" title="2、图上的快速近似卷积"></a>2、图上的快速近似卷积</h3><p>层级映射传播规则:<br>$$<br>H^{(l+1)}&#x3D;\sigma(\tilde{D}^{-\frac{1}{2}}\widetilde{A}\tilde{D}^{-\frac{1}{2}}H^{(l)}W^{(l)})<br>$$<br>$\widetilde{A}&#x3D;A+I_N$，$\widetilde{D}$是由$\widetilde{A}$的度矩阵，$H^{(0)}&#x3D;X$,  $W$是权值矩阵</p>
+<h4 id="2-1、谱域图卷积"><a href="#2-1、谱域图卷积" class="headerlink" title="2.1、谱域图卷积"></a>2.1、谱域图卷积</h4><p>谱域上的滤波器$g(\theta)&#x3D;diag(\theta)$,  $\theta\in R^N$<br>$$<br>g_\theta<em>x&#x3D;U g_\theta U^Tx<br>$$<br>$U$是归一化的图拉普拉斯矩阵的特征向量，$L&#x3D;I_N-D^{-\frac{1}{2}}AD^{-\frac{1}{2}}&#x3D;U\Lambda U^T$,对于大型图来说，由于拉普拉斯的谱分解计算量巨大，所以采用</em><strong>“K阶切比雪夫多项式”</strong>*$T_k(x)$来近似$g_\theta(\Lambda)$,如下：<br>$$<br>g_{\theta^{‘}}(\Lambda)\thickapprox\sum_{k&#x3D;0}^{K}\theta_k^{‘}T_k(\tilde\Lambda)<br>$$<br>其中$\tilde \Lambda&#x3D;\frac{2}{\lambda_{max}}\Lambda-I_N$. $\theta^{‘}$是切比雪夫系数的向量，切比雪夫多项式递归形式为$$T_k(x)&#x3D;2xT_{k-1}(x)-T_{k-2}(x), \ T_0(x)&#x3D;1,\ T_1(x)&#x3D;x$$.</p>
+<p>整合上式，得到：<br>$$<br>g\theta^{‘}*x\thickapprox\sum_{k&#x3D;0}^{K}\theta_k^{‘}T_k(\tilde L)x,<br>$$<br>其中，$\tilde L&#x3D;\frac{2}{\lambda_{max}}L-I_N$,该表达式现在是 K 局部化的，因为它是拉普拉斯算子中的 K 阶多项式，即它仅取决于距离中心节点（K 阶邻域）最大 K 步的节点。</p>
+<h4 id="2-2-分层线性模型"><a href="#2-2-分层线性模型" class="headerlink" title="2.2 分层线性模型"></a>2.2 分层线性模型</h4><p>通过这种方式，我们仍然可以通过堆叠多个此类层来恢复丰富的卷积滤波器函数类别，但我们不限于由切比雪夫多项式等给出的显式参数化。</p>
+<p>在GCN的线性公式里，$\lambda_{max}\thickapprox2$,以上式子再次简化为：<br>$$<br>g_{\theta’}\star x\approx\theta’_0x+\theta’_1\left(L-I_N\right)x&#x3D;\theta’_0x-\theta’_1D^{-\frac{1}{2}}AD^{-\frac{1}{2}}x,<br>$$<br>$\theta_0^{‘}和\theta_1^{‘}$是自由参数，过滤器参数可以在整个图共享。</p>
+<p>在实践中，进一步限制参数的数量以解决过度拟合并最大限度地减少每层的操作（例如矩阵乘法）数量可能是有益的。 这给我们留下了以下表达式：<br>$$<br>g_\theta\star x\approx\theta\left(I_N+D^{-\frac{1}{2}}AD^{-\frac{1}{2}}\right)x,<br>$$<br>其中$\theta&#x3D;\theta_0^{‘}&#x3D;-\theta_1^{‘}$,而$I_N+D^{-\frac{1}{2}}AD^{-\frac{1}{2}}$的特征值值范围是[0,2],因此，当在深度神经网络模型中使用时，重复应用该算子可能会导致数值不稳定和梯度爆炸&#x2F;消失。</p>
+<p>为了缓解这个问题，我们引入了以下重整化技巧:$I_N+D^{-\frac12}AD^{-\frac12}\to\tilde{D}^{-\frac12}\tilde{A}\tilde{D}^{-\frac12}.$</p>
+<p>得到以下公式：<br>$$<br>Z&#x3D;\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}X\Theta,<br>$$<br>其中$\theta\in R^{C*F}$,现在是滤波器参数矩阵,Z是经过滤波后的矩阵。</p>
+<h3 id="3、-半监督节点分类"><a href="#3、-半监督节点分类" class="headerlink" title="3、 半监督节点分类"></a>3、 半监督节点分类</h3><p>正如引言中所述，我们可以通过在数据 X 和底层图结构的邻接矩阵 A 上调节模型 f (X, A) 来放宽基于图的半监督学习中通常做出的某些假设。 我们期望此设置在邻接矩阵包含数据 X 中不存在的信息的场景中特别强大，例如引文网络中文档之间的引文链接或知识图中的关系。 整个模型是一个用于半监督学习的多层 GCN，如图 所示。</p>
+<h4 id="3-1、-例子"><a href="#3-1、-例子" class="headerlink" title="3.1、 例子"></a>3.1、 例子</h4><p>下面，我们考虑在具有对称邻接矩阵 A（二进制或加权）的图上进行半监督节点分类的两层 GCN。 我们首先在预处理步骤中计算$\hat{A}&#x3D;\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}$ 。 我们的前向模型采用简单的形式：<br>$$<br>Z&#x3D;f(X,A)&#x3D;\text{softmax}\Big(\hat{A}\text{ReLU}\Big(\hat{A}XW^{(0)}\Big)W^{(1)}\Big).<br>$$<br>使用交叉熵损失函数：<br>$$<br>\mathcal{L}&#x3D;-\sum_{l\in\mathcal{Y}<em>L}\sum</em>{f&#x3D;1}^FY_{lf}\ln Z_{lf},<br>$$<br>$Y_{lf}$代表节点标签，$Z_{lf}$表示预测结果。</p>
+<p><img src="C:\Users\Administrator\Desktop\Fiile\blog\hexo\source\pic\GCN_1.png" alt="GCN_1"></p>
+<h3 id="4、相关工作"><a href="#4、相关工作" class="headerlink" title="4、相关工作"></a>4、相关工作</h3><p>我们的模型从基于图的半监督学习领域和最近在图上运行的神经网络的工作中汲取了灵感。 接下来，我们将简要概述这两个领域的相关工作。</p>
+<p>4.1、基于图的半监督学习</p>
+<p>近年来，人们提出了大量使用图表示的半监督学习方法，其中大多数分为两大类：使用某种形式的显式图拉普拉斯正则化的方法和基于图嵌入的方法。 图拉普拉斯正则化的突出例子包括标签传播（Zhu et al., 2003）、流形正则化（Belkin et al., 2006）和深度半监督嵌入（Weston et al., 2012）。</p>
+<p>4.2、图上的神经网络</p>
+<h3 id="5、实验"><a href="#5、实验" class="headerlink" title="5、实验"></a>5、实验</h3><p>我们在许多实验中测试我们的模型：引文网络中的半监督文档分类、从知识图提取的二分图中的半监督实体分类、各种图传播模型的评估以及随机图的运行时分析 。</p>
+<h4 id="5-1、数据集"><a href="#5-1、数据集" class="headerlink" title="5.1、数据集"></a>5.1、数据集</h4><table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Type</th>
+<th>Nodes</th>
+<th>Edges</th>
+<th>Classes</th>
+<th>Features</th>
+<th>Label rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Citeseer</td>
+<td>Citation network</td>
+<td>3,327</td>
+<td>4,732</td>
+<td>6</td>
+<td>3703</td>
+<td>0.036</td>
+</tr>
+<tr>
+<td>Cora</td>
+<td>…</td>
+<td>270.</td>
+<td>5429</td>
+<td>7</td>
+<td>1433</td>
+<td>0.052</td>
+</tr>
+<tr>
+<td>Pubmed</td>
+<td>…</td>
+<td>19717</td>
+<td>44338</td>
+<td>3</td>
+<td>500</td>
+<td>0.003</td>
+</tr>
+<tr>
+<td>NELL</td>
+<td>Knowledge graph</td>
+<td>65755</td>
+<td>266144</td>
+<td>210</td>
+<td>5414</td>
+<td>0.001</td>
+</tr>
+</tbody></table>
+<h4 id="5-2、实验设置"><a href="#5-2、实验设置" class="headerlink" title="5.2、实验设置"></a>5.2、实验设置</h4><p>1、两层GCN，500个验证集，1000个测试集。</p>
+<p>2、L2正则化。</p>
+<p>3、学习率0.01，早停机制，dropout，32个隐藏层神经元。</p>
+<h4 id="5-3、BaseLines"><a href="#5-3、BaseLines" class="headerlink" title="5.3、BaseLines"></a>5.3、BaseLines</h4><p>我们与 Yang 等人的相同基线方法进行比较。  （2016），即标签传播（LP）（Zhu et al., 2003）、半监督嵌入（SemiEmb）（Weston et al., 2012）、流形正则化（ManiReg）（Belkin et al., 2006）和跳过 基于-gram 的图嵌入（DeepWalk）（Perozzi 等人，2014）。 我们省略了 TSVM（Joachims，1999），因为它无法扩展到我们的数据集中的大量类。</p>
+<p>我们进一步将 Lu &amp; Getoor (2003) 中提出的迭代分类算法 (ICA) 与两个逻辑回归分类器相结合进行比较，一个用于单独的局部节点特征，另一个用于使用局部特征和聚合算子的关系分类，如 Sen 等人中所述。 等人。  （2008）。 我们首先使用所有标记的训练集节点训练局部分类器，并使用它来引导未标记节点的类标签以进行关系分类器训练。 我们使用随机节点排序运行迭代分类（关系分类器），在所有未标记节点上进行 10 次迭代（使用本地分类器引导）。  L2 正则化参数和聚合运算符（count 与 prop，参见 Sen 等人 (2008)）是根据每个数据集的验证集性能分别选择的。</p>
+<h3 id="6、结果"><a href="#6、结果" class="headerlink" title="6、结果"></a>6、结果</h3><h4 id="6-1、节点分类"><a href="#6-1、节点分类" class="headerlink" title="6.1、节点分类"></a>6.1、节点分类</h4><p><img src="/GCN_2.png" alt="GCN_2"></p>
+<h4 id="6-2、传播模型的评估"><a href="#6-2、传播模型的评估" class="headerlink" title="6.2、传播模型的评估"></a>6.2、传播模型的评估</h4><p>我们在引文网络数据集上比较了我们提出的每层传播模型的不同变体。 我们遵循上一节中描述的实验设置。 结果总结在表 3 中。我们原始 GCN 模型的传播模型由重整化技巧（粗体）表示。 在所有其他情况下，两个神经网络层的传播模型都替换为传播模型下指定的模型。 报告的数字表示随机权重矩阵初始化的 100 次重复运行的平均分类精度。 如果每层有多个变量 θi，我们对第一层的所有权重矩阵进行 L2 正则化。</p>
+<p><img src="/GCN_3.png" alt="GCN_3"></p>
+<p>6.3、每轮训练时间</p>
+<h3 id="7、讨论"><a href="#7、讨论" class="headerlink" title="7、讨论"></a>7、讨论</h3><h4 id="7-1、半监督模型"><a href="#7-1、半监督模型" class="headerlink" title="7.1、半监督模型"></a>7.1、半监督模型</h4><p>在这里演示的实验中，我们的半监督节点分类方法明显优于最近的相关方法。 基于图拉普拉斯正则化的方法（Zhu et al., 2003; Belkin et al., 2006; Weston et al., 2012）很可能受到限制，因为它们假设边缘仅编码节点的相似性。 另一方面，基于 Skip-gram 的方法受到以下事实的限制：它们基于难以优化的多步骤管道。 我们提出的模型可以克服这两个限制，同时在效率（以挂钟时间衡量）方面仍然优于相关方法。 与仅聚合标签信息的 ICA (Lu &amp; Getoor, 2003) 等方法相比，每层中相邻节点的特征信息传播提高了分类性能。</p>
+<p>我们进一步证明，与原始一阶模型相比，所提出的重整化传播模型（方程 8）不仅提高了效率（更少的参数和运算，例如乘法或加法），而且在许多数据集上提供了更好的预测性能（ 方程 6）或使用切比雪夫多项式的高阶图卷积模型（方程 5）。</p>
+<h4 id="7-2、局限性和未来的工作、"><a href="#7-2、局限性和未来的工作、" class="headerlink" title="7.2、局限性和未来的工作、"></a>7.2、局限性和未来的工作、</h4><p><strong>内存需求。</strong>在当前的全批量梯度下降设置中，内存需求随着数据集的大小线性增长。 我们已经证明，对于 GPU 内存无法容纳的大型图，在 CPU 上进行训练仍然是一个可行的选择。 小批量随机梯度下降可以缓解这个问题。 然而，生成小批量的过程应该考虑 GCN 模型中的层数，因为具有 K 层的 GCN 的 K 阶邻域必须存储在内存中才能实现精确的过程。 对于非常大且紧密连接的图形数据集，可能需要进一步的近似。</p>
+<p><strong>有向边和边特征</strong>。我们的框架目前并不自然支持边特征，并且仅限于无向图（加权或未加权）。 然而，NELL 上的结果表明，通过将原始有向图表示为无向二部图，并使用表示原始图中边的附加节点，可以处理有向边和边特征（详细信息请参见第 5.1 节）。</p>
+<p><strong>限制性假设。</strong>通过第 2 节中介绍的近似，我们隐含地假设局部性（依赖于具有 K 层的 GCN 的 K 阶邻域）以及自连接与相邻节点的边的同等重要性。 然而，对于某些数据集，在$\tilde A$的定义中引入权衡参数 λ 可能会有所帮助：<br>$$<br>\tilde A&#x3D;A+\lambda I_N<br>$$<br>该参数现在起着与典型半监督设置中监督和无监督损失之间的权衡参数类似的作用（参见方程 1）。 然而，在这里，它可以通过梯度下降来学习。</p>
+<h3 id="8、结论"><a href="#8、结论" class="headerlink" title="8、结论"></a>8、结论</h3><p>我们引入了一种对图结构数据进行半监督分类的新方法。 我们的 GCN 模型使用高效的分层传播规则，该规则基于图上谱卷积的一阶近似。 对多个网络数据集的实验表明，所提出的 GCN 模型能够以对半监督分类有用的方式编码图结构和节点特征。 在这种情况下，我们的模型在计算效率上明显优于最近提出的几种方法。</p>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><h4 id="A-1具有随机权重的节点嵌入"><a href="#A-1具有随机权重的节点嵌入" class="headerlink" title="A.1具有随机权重的节点嵌入"></a>A.1具有随机权重的节点嵌入</h4><p>通过与 Weisfeiler-Lehman 算法的类比，我们可以理解，即使是<strong>未经训练</strong>的具有随机权重的 GCN 模型也可以作为图中节点的强大特征提取器。</p>
+<h4 id="A-2半监督节点嵌入"><a href="#A-2半监督节点嵌入" class="headerlink" title="A.2半监督节点嵌入"></a>A.2半监督节点嵌入</h4><p>略</p>
+<h4 id="B-模型深度实验"><a href="#B-模型深度实验" class="headerlink" title="B.模型深度实验"></a>B.模型深度实验</h4><p>在这些实验中，我们研究了模型深度（层数）对分类性能的影响。  除了标准 GCN 模型（方程 2）之外，我们还报告了模型变体的结果，<strong>其中我们在隐藏层之间使用残差连接</strong>（He et al., 2016），通过使模型能够携带信息来促进更深层次模型的训练 来<strong>自上一层的输入</strong>：<br>$$<br>H^{(l+1)}&#x3D;\sigma\Big(\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}H^{(l)}W^{(l)}\Big)+H^{(l)}.<br>$$<br>对于此处考虑的数据集，通过 2 层或 3 层模型获得最佳结果。 我们观察到，对于深度超过 7 层的模型，不使用残差连接的训练可能会变得困难，因为每个节点的有效上下文大小都会随着其 K 阶邻域的大小而增加（对于具有 K 层的模型）。 层。 此外，随着参数数量随着模型深度的增加而增加，过度拟合可能成为一个问题。</p>
+<p>![屏幕截图 2023-11-11 105300](&#x2F;屏幕截图 2023-11-11 105300.png)</p>
+
+      
+    </div>
+    
+<div class="reward" id="rewardme">
+「喜欢，就赞一个呗！(:3 」∠)_ (￣y▽￣)~*」
+
+<div class="reward-qr">
+<div class="reward-tks">
+「鼓励我写出更好的文字」
+<i class="fa fa-window-close" aria-hidden="true"></i>
+</div>
+<img src= "/img/alipay.jpg" />
+「支付宝」
+</div>
+
+
+<div class="reward-btn" >
+<div class="reward-text">赏</div>
+</div>
+
+
+</div>
+ 
+    
+    
+
+
+
+
+<div class="copyright">
+<blockquote>
+<strong>本文链接</strong>:  <a href= "http://example.com/2023/11/10/GCN/" href="_blank" > http://example.com/2023/11/10/GCN/ </a>
+<div>
+<strong>版权声明</strong>:本博客所有文章除特别声明外，均采用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" >CC BY-NC-SA 3.0 CN许可协议</a>进行许可。转载请注明出处！
+</div>
+</blockquote>
+</div>
+
+	
+
+    
+    <div class="cat-and-tags">
+    
+    <div class="show-tags">
+<ul>
+
+
+</ul>
+</div>
+
+
+    </div>
+    
+  </div>
+ 
+ 
+  <!--上一篇下一篇 -->
+  
+    
+  
+
+</div>
+</article>
+
+      <footer id="footer">
+  <div class="outer">
+     
+     <div id="footer-info" class="inner">
+     
+      &copy;  2014 - 2023 
+       John Doe<br>
+
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </br>
+      theme <a target="_blank" rel="noopener" href="http://github.com/zhangolve/olive">olive</a> by zhangolve
+      </div>
+      
+      
+     
+
+
+     
+    
+  </div>
+  <div class="to-top">
+    <div class="toTop-btn">
+    <div class="toTop-text">返回顶部</div>
+  	<button class="toTop-button">
+  		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+  	</button >
+    </div>
+  </div>
+</footer>
+     
+    
+
+
+<script src="/js/qrcode.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/lightmode.js"></script>
+
+
+
+<script src="/js/iewarn.js"></script>
+
+
+
+  
+</body>
+</html>
