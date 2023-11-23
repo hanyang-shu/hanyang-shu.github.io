@@ -226,9 +226,9 @@ mjx-container[display="true"] + br {
   	
   	
     
-          
       
       
+         
         
     
     
@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
   		
   	
   	
-  	7hoursago
+  	1dayago
 
 
   
@@ -567,7 +567,7 @@ E_G=\|\mathbf{H}-\mathbf{H}^0\|_F^2+\lambda tr(\mathbf{H}^T{\mathbf{\tilde LH}})
      
      <div id="footer-info" class="inner">
      
-      &copy;  2014 - 2023 
+      &copy;  2023 - 2023 
        John Doe<br>
 
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
@@ -610,5 +610,20 @@ E_G=\|\mathbf{H}-\mathbf{H}^0\|_F^2+\lambda tr(\mathbf{H}^T{\mathbf{\tilde LH}})
 
 
   
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

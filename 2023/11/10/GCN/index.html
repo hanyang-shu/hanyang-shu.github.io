@@ -253,7 +253,7 @@ mjx-container[display="true"] + br {
   		
   	
   	
-  	12daysago
+  	13daysago
 
 
   
@@ -484,7 +484,7 @@ H^{(l+1)}=\sigma\Big(\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}H^
      
      <div id="footer-info" class="inner">
      
-      &copy;  2014 - 2023 
+      &copy;  2023 - 2023 
        John Doe<br>
 
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
@@ -527,5 +527,20 @@ H^{(l+1)}=\sigma\Big(\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}H^
 
 
   
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
